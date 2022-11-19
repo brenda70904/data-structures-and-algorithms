@@ -9,7 +9,7 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  return arr.reduce( (accumulator, currVal) =>
+  return arr.reduce((accumulator, currVal) =>
     Math.max(accumulator, currVal));
 };
 
@@ -20,7 +20,8 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -39,9 +40,11 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   let result = false;
-  Object.values(obj).forEach( val => {if(val === value){
-    result = true;
-  }});
+  Object.values(obj).forEach(val => {
+    if (val === value) {
+      result = true;
+    }
+  });
   return result;
 };
 
@@ -64,7 +67,7 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  return Object.entries(obj).map(item=> item[0] + ': ' + item[1]);
+  return Object.entries(obj).map(item => item[0] + ': ' + item[1]);
 };
 
 
@@ -136,14 +139,33 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
+
 const hasChildrenValues = (arr, character) => {
-  let result = false;
-  arr.forEach(item =>{
-    if(Object.value(item) === character){
-      result = true;
+  let kids = 0; // if is greater then 0 reutrn true means there's kids
+
+  arr.forEach(person => {
+    // find the person whose name matches the character passed in;
+    if (person.name === character) {
+      // find children array - find the index of the character array
+      Object.keys(person).forEach((key,idx) =>{
+        // if I find dthe children then idx will equal the current idnex, aka index of children.
+        if (key === 'children'){
+          let values = Object.values(person);
+          //go to obj values arra and use that index to get current values's place, then use the length to find out how many children.
+          kids= values[idx].length;
+        }
+      });
     }
   });
-  return result;
+  return kids ? true : false;
+
+  // let result = false;
+  // arr.forEach(item =>{
+  //   if(Object.value(item) === character){
+  //     result = true;
+  //   }
+  // });
+  // return result;
 };
 
 /* ------------------------------------------------------------------------------------------------

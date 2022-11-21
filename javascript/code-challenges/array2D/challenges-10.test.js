@@ -109,7 +109,6 @@ const salesData = (hours, data) => {
   let result = [];
   data.forEach((item, idx) =>
     result.push({ sales: item + ' cookies', time: hours[idx] }));
-  console.log(result);
   return result;
 };
 
@@ -135,13 +134,7 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  let result = 0;
-  for(let i of arr){
-    for(let k of arr[i]){
-      if(arr)
-    }
-  }
-
+  return arr[2].items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------

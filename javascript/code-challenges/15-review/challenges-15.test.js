@@ -107,7 +107,7 @@ let starWarsData = [{
 let biggerThanLuke = (arr) => {
   return arr.reduce((a, c) =>
     parseInt(c.mass) > 77 ? (a.length === 0 ? a + c.name : (a + ' - ' + c.name)) : a
-  , '');
+    , '');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -125,9 +125,9 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  arr.sort((a, b) => {
-    a[property] < b[property] ? -1 : 1;
-  });
+  arr.sort((a, b) =>
+    (a[property] < b[property]) ? -1 : 1
+  );
   return arr;
 };
 
@@ -168,8 +168,41 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  let result = false;
+  for (let i = 0; i < 3; i++) {
+    if (helper(board[i][0], board[i][1], board[i][2])
+      || helper(board[0][i], board[1][i], board[2][i])) {
+      result = true;
+    }
+  }
+  return helper(board[0][0], board[1][1], board[2][2]) ? true : result;
 };
+
+const helper = (a, b, c) => {
+  if (a.length !== 0 && a === b && b === c) return true;
+};
+// for (let i = 0; i < board.length; i++) {
+  //   if (board[i][0] !== '' && board[i][1] !== '' && board[i][2] !== '') {
+  //     if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+  //       return true;
+  //     }
+  //   }
+  // }
+  // for (let i = 0; i < board.length; i++) {
+  //   if (board[0][i] !== '' && board[1][i] !== '' && board[2][i] !== '') {
+  //     if (board[0][i] === board[1][i] && board[1][i] === board[2][i]);
+  //     return true;
+  //   }
+  // }
+  // if (board[0][0] !== '' && board[1][1] !== '' && board[2][2] !== '') {
+  //   if (board[0][0] === board[1][1] === board[2][2]);
+  //   return true;
+  // }
+  // if (board[0][2] !== '' && board[1][1] !== '' && board[2][0] !== '') {
+  //   if (board[0][2] === board[1][1] === board[2][0]);
+  //   return true;
+  // }
+// };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS

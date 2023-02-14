@@ -8,7 +8,6 @@ Write a function called `reverseArray` which takes an array as an argument. With
 
 ## Approach & Efficiency
 
-
 Big O:
 time : O(n)
 space : O(1)

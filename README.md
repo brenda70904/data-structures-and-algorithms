@@ -22,4 +22,5 @@ To run your tests
 
 table of Contents
 
--[Array-Reverse](./javascript/array-reverse/README.md)
+- [Array-Reverse](./javascript/array-reverse/README.md)
+- [Array-insert-shift](./javascript/array-insert-shift/README.md)

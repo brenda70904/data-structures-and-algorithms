@@ -4,7 +4,7 @@ Write a function called insertShiftArray which takes in an array and a value to 
 
 ## Whiteboard Process
 
-![codeChallenge-02](/assets/codeChallenge-02.png)
+![codeChallenge-02](../assets/codeChallenge-02.png)
 
 ## Approach & Efficiency
 
@@ -14,5 +14,5 @@ space: O(n)
 
 ### Credit and Collaborations
 
-marco villafana
-Steve Gant
+- marco villafana
+- Steve Gant

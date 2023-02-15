@@ -24,3 +24,5 @@ table of Contents
 
 - [Array-Reverse](./javascript/array-reverse/README.md)
 - [Array-insert-shift](./javascript/array-insert-shift/README.md)
+
+-[Array-binary-search](./javascript/array-binary-serch/README.md)

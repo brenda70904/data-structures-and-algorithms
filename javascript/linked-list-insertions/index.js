@@ -22,11 +22,24 @@ class LinkedListInsertion extends LinkedList{
     };
 
     insertBefore(val, newVal){
-
+        let curr = this.head;
+        let prev = null;
+        while(curr != val){
+            prev = curr;
+            curr = curr.next;
+        };
+        perv.next = newVal;
+        newVal.next = curr;
+        
     };
 
     insertAfter(val, newVal){
-
+        let curr = this.head;
+        while(curr != val){
+            curr = curr.next;
+        };
+        newVal = curr.next;
+        curr.next = newVal;
     };
 };
 

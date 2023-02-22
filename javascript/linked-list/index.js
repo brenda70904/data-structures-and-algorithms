@@ -5,12 +5,14 @@ const { val } = require("cheerio/lib/api/attributes");
 class LinkedList {
     constructor() {
         this.head = null;
+        this.length = 0;
     };
     // lab 05
     insert(value) {
         let current = this.head;
         this.head = new Node(value);
         this.head.next = current;
+        this.length++;
         //one line this.head = new Node(value, this.head);
     };
 
@@ -26,14 +28,13 @@ class LinkedList {
 
     includes(value) {
         let curr = this.head;
-        while (curr.value != null) {
+        while (curr != null) {
             if (curr.value === value) {
                 return true;
-            } else {
-                return false;
             }
             curr = curr.next;
         };
+        return false;
     };
 
     //lab 06
@@ -42,7 +43,10 @@ class LinkedList {
         while (current) {
             current = current.next;
         }
+        this.length++;
         return current.next = val;
+
+
     };
 
     insertBefore(val, newVal) {
@@ -54,6 +58,7 @@ class LinkedList {
         };
         perv.next = newVal;
         newVal.next = curr;
+        this.length++;
 
     };
 
@@ -64,6 +69,7 @@ class LinkedList {
         };
         newVal = curr.next;
         curr.next = newVal;
+        this.length++;
     };
 
     //lab 07
@@ -74,18 +80,19 @@ class LinkedList {
         if (position < 0) {
             return "exception";
         }
-        for (let i = 0; i <= position; i++) {
+        for (let i = 0; i < position; i++) {
             current = current.next;
         }
         return current.value;
     };
+
 };
 
 
 class Node {
     constructor(value, next = null) {
         this.value = value,
-        this.next = next
+            this.next = next
     };
 };
 

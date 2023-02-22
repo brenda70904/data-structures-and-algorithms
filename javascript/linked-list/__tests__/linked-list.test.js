@@ -3,6 +3,7 @@
 // Require our linked list implementation
 const LinkedList = require('../index');
 
+//------------lab 05 testing ---------------
 describe('Linked List', () => {
   it('works', () => {
     expect(true).toBeTruthy();
@@ -64,4 +65,34 @@ describe('Linked List', () => {
     const nodeIncluded = linked.includes("5");
     expect(nodeIncluded).toBeFalsy();
   });
+
+  // ------------lab 06 testing ---------------
+  
+
+  // ------------lab 07 testing ---------------
+
+  test('return the value of kth', ()=> {
+    const linked = new LinkedList();
+    linked.insert(1);
+    linked.insert(2);
+    linked.insert(3);
+    linked.kthFromTheEnd(2);
+
+    expect(linked.head.value).toEqual(3);
+  });
+  test('Where k is greater than the length of the linked list', ()=> {
+    const linked = new LinkedList();
+    linked.insert(1);
+    linked.insert(2);
+    linked.insert(3);
+    linked.insert(4);
+    linked.kthFromTheEnd(16);
+
+    expect(linked.head.value).toEqual("exception");
+  });
+
+
+
+
+
 });

@@ -1,7 +1,5 @@
 'use strict';
 
-const { val } = require("cheerio/lib/api/attributes");
-
 class LinkedList {
     constructor() {
         this.head = null;
@@ -38,37 +36,46 @@ class LinkedList {
     };
 
     //lab 06
-    append(val) {
-        let current = this.head;
-        while (current) {
-            current = current.next;
+    append(value) {
+        let curr = this.head;
+        let newNode = new Node(value);
+        if (!curr) {
+            this.head = newNode;
+            return;
+        }
+        while (curr.next) {
+            curr = curr.next;
         }
         this.length++;
-        return current.next = val;
+        curr.next = new Node(value);
 
 
     };
 
-    insertBefore(val, newVal) {
+    insertBefore(value, newVal) {
         let curr = this.head;
         let prev = null;
-        while (curr != val) {
+        let newNode = new Node(newVal);
+        while (curr.value != value) {
             prev = curr;
             curr = curr.next;
         };
-        perv.next = newVal;
-        newVal.next = curr;
+        perv.next = newNode;
+        newNode.next = curr;
         this.length++;
 
     };
 
-    insertAfter(val, newVal) {
+    insertAfter(value, newVal) {
         let curr = this.head;
-        while (curr != val) {
+        let next = curr.next;
+        let newNode = new Node(newVal);
+        while (curr.value != value) {
             curr = curr.next;
+            next = curr.next;
         };
-        newVal = curr.next;
-        curr.next = newVal;
+        curr.next = newNode;
+        newNode.next = next;
         this.length++;
     };
 
@@ -86,6 +93,23 @@ class LinkedList {
         return current.value;
     };
 
+    zipList(list1, list2) {
+        let curr1 = list1.head;
+        let curr2 = list2.head;
+        let newList = new LinkedList();
+
+        while (curr1 || curr2) {
+            if (curr1) {
+                newList.append(curr1.value);
+                curr1 = curr1.next;
+            }
+            if (curr2) {
+                newList.append(curr2.value);
+                curr2 = curr2.next;
+            }
+        }
+        return newList;
+    }
 };
 
 

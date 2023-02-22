@@ -67,6 +67,7 @@ describe('Linked List', () => {
   // ------------lab 06 testing ---------------
 
 
+
   // ------------lab 07 testing ---------------
 
   test('return the value of kth', () => {
@@ -96,6 +97,7 @@ describe('Linked List', () => {
     linked.insert(3);
     linked.insert(4);
 
+
     expect(linked.kthFromTheEnd(10)).toEqual("exception");
   });
 
@@ -118,5 +120,28 @@ describe('Linked List', () => {
 
 
     expect(position).toEqual(3);
+  });
+
+  // lab 08
+  it("where return a new list", ()=>{
+    const linked = new LinkedList();
+
+    const list1 = new LinkedList();
+    list1.insert(5);
+    list1.insert(1);
+    list1.insert(2);
+    list1.insert(3);
+    list1.insert(4);
+
+    const list2 = new LinkedList();
+    list2.insert(50);
+    list2.insert(10);
+    list2.insert(20);
+    list2.insert(30);
+    list2.insert(40);
+
+    expect(linked.zipList(list1, list2).head.value).toEqual(4);
+    expect(linked.zipList(list1, list2).head.next.value).toEqual(40);
+
   });
 });

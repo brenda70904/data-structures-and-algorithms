@@ -9,7 +9,7 @@ class Node {
 
 class Stack {
   constructor() {
-    this.top = top;
+    this.top = null;
   }
 
 
@@ -36,7 +36,7 @@ class Stack {
   }
 
   isEmpty() {
-    return this.top === null;
+    return !this.top ;
   };
 }
 
@@ -73,6 +73,10 @@ class Queue {
       return this.front;
     }
     return null;
+  }
+
+  isEmpty(){
+    return this.front === null && this.back === null;
   }
 }
 

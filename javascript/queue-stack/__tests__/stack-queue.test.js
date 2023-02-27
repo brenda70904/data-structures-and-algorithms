@@ -38,7 +38,7 @@ describe('Stack', () => {
   });
 
   it("it can peek the top one", () => {
-    let stack = new Stack ();
+    let stack = new Stack();
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -46,10 +46,22 @@ describe('Stack', () => {
     expect(stack.peek()).toEqual(3);
   });
 
+  it('is empty', () => {
+    let stack = new Stack();
+
+    expect(stack.isEmpty()).toBeTruthy();
+  });
+
+  it('is not empty', () => {
+    let stack = new Stack();
+    stack.push(1);
+
+    expect(stack.isEmpty()).toBeFalsy();
+  });
 });
 
-describe("Queue", ()=>{
-  it('can successfully enqueue', ()=>{
+describe("Queue", () => {
+  it('can successfully enqueue', () => {
     let queue = new Queue();
     queue.enqueue(1);
     queue.enqueue(2);
@@ -59,7 +71,7 @@ describe("Queue", ()=>{
     expect(queue.back.value).toEqual(3);
   });
 
-  it('can successfully dequeue', ()=>{
+  it('can successfully dequeue', () => {
     let queue = new Queue();
     queue.enqueue(1);
     queue.enqueue(2);
@@ -67,12 +79,12 @@ describe("Queue", ()=>{
 
     queue.dequeue(1);
     queue.dequeue(2);
-  
+
     expect(queue.front.value).toEqual(3);
     expect(queue.back.value).toEqual(3);
   });
 
-  it('can successfully peek the front value', ()=>{
+  it('can successfully peek the front value', () => {
     let queue = new Queue();
     queue.enqueue(1);
     queue.enqueue(2);
@@ -81,9 +93,22 @@ describe("Queue", ()=>{
 
     queue.dequeue(1);
     queue.dequeue(2);
-  
+
     expect(queue.front.value).toEqual(3);
     expect(queue.back.value).toEqual(30);
+  });
+
+  it('is empty', () => {
+    let queue = new Queue();
+
+    expect(queue.isEmpty()).toBeTruthy();
+  });
+
+  it('is not empty', () => {
+    let queue = new Queue();
+    queue.enqueue(1);
+
+    expect(queue.isEmpty()).toBeFalsy();
   });
 })
 

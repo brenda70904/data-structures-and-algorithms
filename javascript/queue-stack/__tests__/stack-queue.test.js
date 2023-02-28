@@ -2,6 +2,7 @@
 
 const { Stack, Queue } = require('../');
 const PseudoQueue = require("../pseudoQueue.js");
+const AnimalShelter = require("../stack-queue-animal-shelter");
 
 // --------------------stack test--------------------//
 describe('Stack', () => {
@@ -123,7 +124,7 @@ describe("pseudoQueue", () => {
 
     expect(pseudoQueue.stack1.top.value).toEqual(20);
   });
-  
+
   it("can successfully add node to stack", () => {
     let pseudoQueue = new PseudoQueue();
     pseudoQueue.enqueue(100);
@@ -148,3 +149,44 @@ describe("pseudoQueue", () => {
   });
 
 });
+
+// --------------------animalShelter test--------------------//
+
+const dogObj = { species: "dog", name: "dogName" }
+const catObj = { species: "cat", name: "catName" }
+let animalShelter = new AnimalShelter();
+
+describe("AnimalShelter", () => {
+
+  // it("can enqueue based on species", () => {
+  //   animalShelter.enqueue(dogObj);
+  //   animalShelter.enqueue(dogObj);
+  //   animalShelter.enqueue(catObj);
+
+  //   expect(animalShelter.dequeue()).toBe(dogObj);
+  // });
+
+  it("can enqueue based on species", () => {
+
+    animalShelter.enqueue(dogObj);
+    animalShelter.enqueue(dogObj);
+
+    expect(animalShelter.dogQ.isEmpty()).toBeFalsy();
+    expect(animalShelter.catQ.isEmpty()).toBeTruthy();
+  });
+
+  it("can dequeue based on species", () => {
+
+    animalShelter.enqueue(dogObj);
+    animalShelter.enqueue(dogObj);
+    animalShelter.enqueue(dogObj);
+
+    animalShelter.enqueue(catObj);
+    animalShelter.enqueue(catObj);
+    animalShelter.enqueue(catObj);
+
+    expect(animalShelter.dequeue("dog")).toBe(dogObj);
+    expect(animalShelter.dequeue("cat")).toBe(catObj);
+    expect(animalShelter.dequeue("brid")).toBeNull();
+  });
+})

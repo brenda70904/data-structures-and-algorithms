@@ -36,7 +36,7 @@ class Stack {
   }
 
   isEmpty() {
-    return !this.top ;
+    return !this.top;
   };
 }
 
@@ -47,10 +47,10 @@ class Queue {
   };
 
   enqueue(value) {
-    let newNode = new Node (value); 
-    if (this.front){
+    let newNode = new Node(value);
+    if (this.front) {
       this.back.next = newNode;
-    }else{
+    } else {
       this.front = newNode;
     }
     this.back = newNode;
@@ -58,24 +58,24 @@ class Queue {
 
   dequeue() {
     let removedValue = null;
-    if (this.front){
+    if (this.front) {
       removedValue = this.front.value;
-      if (this.front === this.back){
-        this.back = null ;
+      if (this.front === this.back) {
+        this.back = null;
       };
-      this.front= this.front.next;
+      this.front = this.front.next;
     };
     return removedValue;
   };
 
-  peek(){
-    if (this.front){
+  peek() {
+    if (this.front) {
       return this.front;
     }
     return null;
   }
 
-  isEmpty(){
+  isEmpty() {
     return this.front === null && this.back === null;
   }
 }

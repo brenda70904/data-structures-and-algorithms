@@ -15,4 +15,4 @@ Big O :
 
 ## Solution
 
-to run the test, use `npm test pseudoQueue.test.js`.
+to run the test, use `npm test stack-queue.test.js`.

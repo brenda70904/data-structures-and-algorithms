@@ -11,39 +11,24 @@ class Node {
 
 class PseudoQueue {
   constructor() {
-    this.stack1 = new Stack;
-    this.stack2 = new Stack;
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
   }
 
   enqueue(value) {
-    let newNode = new Node(value);
-    if (!this.stack1.isEmpty) {
-      while (!stack1.isEmpty) {
-        let temp = this.top;
-        temp = stack1.pop();
-        stack2.push(temp);
-        this.top = this.top.next;
-        temp = this.top;
-      }
-      this.stack1.push(newNode);
-
-      while (!this.stack2.isEmpty) {
-        this.top = stack2.pop();
-        stack1.push(this.top);
-        this.top = this.top.next;
-      }
-    } else {
-      this.stack1.push(newNode);
-    };
+    this.stack1.push(value)
   }
 
   dequeue() {
-    if (!this.stack1.isEmpty) {
-      let temp = this.top;
-      this.top = this.top.next;
-      temp.next = null;
-      return temp;
-    } else return null;
+    while (!this.stack1.isEmpty()) {
+      let temp = this.stack1.pop()
+      this.stack2.push(temp);
+    }
+    let result = this.stack2.pop();
+    while (!this.stack2.isEmpty()) {
+      this.stack1.push(this.stack2.pop());
+    }
+    return result ? result : null
   }
 }
 

@@ -20,7 +20,7 @@ class Stack {
     this.top = newNode;
   };
 
-  pop(value) {
+  pop() {
     let removedValue = this.top ? this.top.value : this.top;
     if (this.top) {
       this.top = this.top.next;

@@ -1,7 +1,9 @@
 'use strict';
 
 const { Stack, Queue } = require('../');
+const PseudoQueue = require("../pseudoQueue.js");
 
+// --------------------stack test--------------------//
 describe('Stack', () => {
   it('Can successfully push onto a stack', () => {
     let stack = new Stack();
@@ -60,6 +62,7 @@ describe('Stack', () => {
   });
 });
 
+// --------------------Queue test--------------------//
 describe("Queue", () => {
   it('can successfully enqueue', () => {
     let queue = new Queue();
@@ -110,5 +113,38 @@ describe("Queue", () => {
 
     expect(queue.isEmpty()).toBeFalsy();
   });
-})
+});
 
+// --------------------pseudoQueue test--------------------//
+describe("pseudoQueue", () => {
+  it("can successfully add node to stack when stack is empty", () => {
+    let pseudoQueue = new PseudoQueue();
+    pseudoQueue.enqueue(20);
+
+    expect(pseudoQueue.stack1.top.value).toEqual(20);
+  });
+  
+  it("can successfully add node to stack", () => {
+    let pseudoQueue = new PseudoQueue();
+    pseudoQueue.enqueue(100);
+    pseudoQueue.enqueue(200);
+    pseudoQueue.enqueue(300);
+
+    expect(pseudoQueue.dequeue()).toEqual(100);
+  });
+  it("empty queue", () => {
+    let pseudoQueue = new PseudoQueue();
+    expect(pseudoQueue.dequeue()).toBeNull();
+  });
+  it("empty queue after extracting all data", () => {
+    let pseudoQueue = new PseudoQueue();
+    pseudoQueue.enqueue(100);
+    pseudoQueue.enqueue(200);
+    pseudoQueue.enqueue(300);
+    pseudoQueue.dequeue();
+    pseudoQueue.dequeue();
+    pseudoQueue.dequeue();
+    expect(pseudoQueue.dequeue()).toBeNull();
+  });
+
+});

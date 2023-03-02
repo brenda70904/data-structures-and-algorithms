@@ -11,7 +11,7 @@ Write a function called Validate brackets that check if is a complete bracket.
 Big O :
 
 - time: O(N)
-- space: O(1)
+- space: O(N) n represent the string 
 
 ## Solution
 

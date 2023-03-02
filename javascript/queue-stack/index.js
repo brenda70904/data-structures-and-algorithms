@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
 class Node {
-  constructor(value, next) {
+  constructor(value) {
     this.value = value;
     this.next = null;
-  };
-};
+  }
+}
 
 class Stack {
   constructor() {
@@ -18,15 +18,15 @@ class Stack {
     let newNode = new Node(value);
     newNode.next = this.top;
     this.top = newNode;
-  };
+  }
 
   pop() {
     let removedValue = this.top ? this.top.value : this.top;
     if (this.top) {
       this.top = this.top.next;
-    };
+    }
     return removedValue;
-  };
+  }
 
   peek() {
     if (this.top) {
@@ -37,14 +37,14 @@ class Stack {
 
   isEmpty() {
     return !this.top;
-  };
+  }
 }
 
 class Queue {
   constructor() {
     this.front = null;
     this.back = null;
-  };
+  }
 
   enqueue(value) {
     let newNode = new Node(value);
@@ -62,11 +62,11 @@ class Queue {
       removedValue = this.front.value;
       if (this.front === this.back) {
         this.back = null;
-      };
+      }
       this.front = this.front.next;
-    };
+    }
     return removedValue;
-  };
+  }
 
   peek() {
     if (this.front) {

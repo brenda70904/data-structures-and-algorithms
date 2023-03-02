@@ -1,8 +1,9 @@
 'use strict';
 
 const { Stack, Queue } = require('../');
-const PseudoQueue = require("../pseudoQueue.js");
-const AnimalShelter = require("../stack-queue-animal-shelter");
+const PseudoQueue = require('../pseudoQueue.js');
+const AnimalShelter = require('../stack-queue-animal-shelter');
+const bracket = require('../stack-queue-brackets');
 
 // --------------------stack test--------------------//
 describe('Stack', () => {
@@ -10,7 +11,7 @@ describe('Stack', () => {
     let stack = new Stack();
     stack.push(1);
 
-    expect(stack.top.value).toEqual(1)
+    expect(stack.top.value).toEqual(1);
   });
   it('Can successfully push multiple values onto a stack', () => {
     let stack = new Stack();
@@ -34,13 +35,13 @@ describe('Stack', () => {
     expect(stack.top.next.next.value).toEqual(1);
 
     let poppedValue = stack.pop();
-    expect(poppedValue).toEqual(3)
+    expect(poppedValue).toEqual(3);
     expect(stack.top.value).toEqual(2);
     expect(stack.top.next.value).toEqual(1);
 
   });
 
-  it("it can peek the top one", () => {
+  it('it can peek the top one', () => {
     let stack = new Stack();
     stack.push(1);
     stack.push(2);
@@ -64,7 +65,7 @@ describe('Stack', () => {
 });
 
 // --------------------Queue test--------------------//
-describe("Queue", () => {
+describe('Queue', () => {
   it('can successfully enqueue', () => {
     let queue = new Queue();
     queue.enqueue(1);
@@ -117,15 +118,15 @@ describe("Queue", () => {
 });
 
 // --------------------pseudoQueue test--------------------//
-describe("pseudoQueue", () => {
-  it("can successfully add node to stack when stack is empty", () => {
+describe('pseudoQueue', () => {
+  it('can successfully add node to stack when stack is empty', () => {
     let pseudoQueue = new PseudoQueue();
     pseudoQueue.enqueue(20);
 
     expect(pseudoQueue.stack1.top.value).toEqual(20);
   });
 
-  it("can successfully add node to stack", () => {
+  it('can successfully add node to stack', () => {
     let pseudoQueue = new PseudoQueue();
     pseudoQueue.enqueue(100);
     pseudoQueue.enqueue(200);
@@ -133,11 +134,11 @@ describe("pseudoQueue", () => {
 
     expect(pseudoQueue.dequeue()).toEqual(100);
   });
-  it("empty queue", () => {
+  it('empty queue', () => {
     let pseudoQueue = new PseudoQueue();
     expect(pseudoQueue.dequeue()).toBeNull();
   });
-  it("empty queue after extracting all data", () => {
+  it('empty queue after extracting all data', () => {
     let pseudoQueue = new PseudoQueue();
     pseudoQueue.enqueue(100);
     pseudoQueue.enqueue(200);
@@ -152,21 +153,13 @@ describe("pseudoQueue", () => {
 
 // --------------------animalShelter test--------------------//
 
-const dogObj = { species: "dog", name: "dogName" }
-const catObj = { species: "cat", name: "catName" }
+const dogObj = { species: 'dog', name: 'dogName' };
+const catObj = { species: 'cat', name: 'catName' };
 let animalShelter = new AnimalShelter();
 
-describe("AnimalShelter", () => {
+describe('AnimalShelter', () => {
 
-  // it("can enqueue based on species", () => {
-  //   animalShelter.enqueue(dogObj);
-  //   animalShelter.enqueue(dogObj);
-  //   animalShelter.enqueue(catObj);
-
-  //   expect(animalShelter.dequeue()).toBe(dogObj);
-  // });
-
-  it("can enqueue based on species", () => {
+  it('can enqueue based on species', () => {
 
     animalShelter.enqueue(dogObj);
     animalShelter.enqueue(dogObj);
@@ -175,7 +168,7 @@ describe("AnimalShelter", () => {
     expect(animalShelter.catQ.isEmpty()).toBeTruthy();
   });
 
-  it("can dequeue based on species", () => {
+  it('can dequeue based on species', () => {
 
     animalShelter.enqueue(dogObj);
     animalShelter.enqueue(dogObj);
@@ -185,8 +178,32 @@ describe("AnimalShelter", () => {
     animalShelter.enqueue(catObj);
     animalShelter.enqueue(catObj);
 
-    expect(animalShelter.dequeue("dog")).toBe(dogObj);
-    expect(animalShelter.dequeue("cat")).toBe(catObj);
-    expect(animalShelter.dequeue("brid")).toBeNull();
+    expect(animalShelter.dequeue('dog')).toBe(dogObj);
+    expect(animalShelter.dequeue('cat')).toBe(catObj);
+    expect(animalShelter.dequeue('bird')).toBeNull();
   });
-})
+});
+// --------------------bracket test--------------------//
+
+describe('bracket',()=>{
+  it('return true with input:',()=>{
+    expect(bracket('{}')).toBeTruthy();
+    expect(bracket('{}(){}')).toBeTruthy();
+    expect(bracket('{[()]}')).toBeTruthy();
+    expect(bracket('(){}[[]]')).toBeTruthy();
+    expect(bracket('{}{Code}[Fellows](())')).toBeTruthy();
+    expect(bracket('()[[Extra Characters]]')).toBeTruthy();
+  });
+
+  it('return false wtih input:',()=>{
+    expect(bracket('[({}]')).toBeFalsy();
+    expect(bracket('(](')).toBeFalsy();
+    expect(bracket('{(})')).toBeFalsy();
+    expect(bracket('()[{]}')).toBeFalsy();
+    expect(bracket('(((((((')).toBeFalsy();
+  });
+
+  test('return null if no string',()=>{
+    expect(bracket('')).toBeFalsy();
+  });
+});

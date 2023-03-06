@@ -66,3 +66,18 @@ describe('Binary Search Tree', () => {
     expect(bst.contains(77)).toBeFalsy();
   });
 });
+
+describe('tree Max',()=>{
+  let tree = new Tree();
+  tree.root = new Node(8);
+  tree.root.left = new Node(11);
+  tree.root.right = new Node(2);
+  tree.root.left.left = new Node(13);
+  tree.root.left.right = new Node(1);
+  tree.root.right.left = new Node(15);
+  tree.root.right.right = new Node(6);
+  
+  it('return max value from tree',()=>{
+    expect(tree.treeMax()).toEqual(15);
+  });
+})

@@ -68,6 +68,43 @@ class Tree {
     traverse(this.root);
     return result;
   }
+
+  treeMax() {
+    if (this.root === null) throw new Error('you do not  have a tree');
+    let temp = 0;
+    const traverse = (node) => {
+      if (temp < node.value) {
+        temp = node.value;
+      }
+      if (node.left !== null) {
+        traverse(node.left);
+      }
+      if (node.right !== null) {
+        traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    return temp;
+    
+    // if (!this.root) return false;
+    // let temp = this.root.left;
+    // let current = this.root;
+    // const traverse = (node) => {
+    //   if (temp < current.value) {
+    //     current = temp.value;
+    //     // current = temp;
+    //   }
+    //   if (node.left) {
+    //     traverse(node.left);
+    //   }
+    //   if (node.right) {
+    //     traverse(node.right);
+    //   }
+    //   traverse(this.root);
+    //   return current.value;
+
+    // }
+  }
 }
 
 class BST {

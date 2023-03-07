@@ -63,12 +63,51 @@ describe('Linked List', () => {
 
     expect(linked.includes("5")).toBeFalsy();
   });
+});
+// ------------lab 06 insertions ---------------
+describe('linked-list-insertions', () => {
+  it('Can successfully add a node to the end of the linked list',()=>{
+    const linked= new LinkedList();
+    linked.insert('apple');
+    linked.insert('lemon');
+    linked.append('peach');
+    expect(linked.toString()).toEqual('{lemon} -> {apple} -> {peach} -> NULL');
 
-  // ------------lab 06 testing ---------------
+  });
+
+  it('Can successfully add multiple nodes to the end of a linked list',()=>{
+    const linked= new LinkedList();
+    linked.insert('apple');
+    linked.insert('lemon');
+    linked.append('peach');
+    linked.append('cherry');
+
+    expect(linked.toString()).toEqual('{lemon} -> {apple} -> {peach} -> {cherry} -> NULL');
+  });
+
+  it('Can successfully insert a node before a node located i the middle of a linked list',()=>{
+    const linked= new LinkedList();
+    linked.insert(1);
+    linked.insert(3);
+    linked.insert(5);
+    linked.insertBefore(3,2)
+
+    expect(linked.toString()).toEqual('{5} -> {2} -> {3} -> {1} -> NULL');
+  });
+  it('Can successfully insert a node before the first node of a linked list',()=>{
+    const linked= new LinkedList();
+    linked.insert(1);
+    linked.insert(3);
+    linked.insert(5);
+    linked.insertAfter(3,2)
+
+    expect(linked.toString()).toEqual('{5} -> {3} -> {2} -> {1} -> NULL');
+  });
+  });
 
 
-
-  // ------------lab 07 testing ---------------
+// ------------lab 07 Linked-List-kth ---------------
+describe('Linked-list-Kth', () => {
 
   test('return the value of kth', () => {
     const linked = new LinkedList();
@@ -121,9 +160,12 @@ describe('Linked List', () => {
 
     expect(position).toEqual(3);
   });
+});
 
-  // lab 08
-  it("where return a new list", ()=>{
+// -------------lab 08 zip ------------------//
+describe('Linked-list-zip', () => {
+
+  it("where return a new list", () => {
     const linked = new LinkedList();
 
     const list1 = new LinkedList();
@@ -145,3 +187,5 @@ describe('Linked List', () => {
 
   });
 });
+
+

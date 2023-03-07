@@ -18,7 +18,7 @@ class LinkedList {
         let current = this.head;
         let text = "";
         while (current) {
-            text += ` { ${current.value} } -> `
+            text += `{${current.value}} -> `
             current = current.next;
         }
         return text + "NULL";
@@ -48,8 +48,6 @@ class LinkedList {
         }
         this.length++;
         curr.next = new Node(value);
-
-
     };
 
     insertBefore(value, newVal) {
@@ -60,10 +58,9 @@ class LinkedList {
             prev = curr;
             curr = curr.next;
         };
-        perv.next = newNode;
+        prev.next = newNode;
         newNode.next = curr;
         this.length++;
-
     };
 
     insertAfter(value, newVal) {

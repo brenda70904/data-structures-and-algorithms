@@ -12,6 +12,7 @@ describe('Tree - Breadth - First', () => {
   tree.root.right.left = new Node(4);
 
   it('return an array of all values in the tree, in the order they were encountered', () => {
+    
     expect(TreeBreadthFirst(tree)).toEqual([2, 8, 5, 6, 10, 4]);
   });
 

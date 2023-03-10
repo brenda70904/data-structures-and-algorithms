@@ -85,7 +85,7 @@ class Tree {
     };
     traverse(this.root);
     return temp;
-    
+
     // if (!this.root) return false;
     // let temp = this.root.left;
     // let current = this.root;
@@ -105,9 +105,27 @@ class Tree {
 
     // }
   }
-
-
 }
+
+// const preOrderSum = (tree) => {
+
+//   let num = 0;
+//   const traverse = (node) => {
+//     num = num + node.value;
+//     console.log(num);
+//     if (node.left) {
+//       traverse(node.left);
+//     }
+//     if (node.right) {
+//       traverse(node.right);
+//     }
+//   }
+//   return num;
+// }
+
+// console.log(preOrderSum(tree));
+
+
 
 class BST {
   constructor() {
@@ -167,4 +185,4 @@ class BST {
 // }
 
 
-module.exports = { Node, Tree, BST };
+module.exports = { Node, Tree, BST, preOrderSum };

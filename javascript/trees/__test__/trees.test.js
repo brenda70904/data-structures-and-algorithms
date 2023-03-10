@@ -1,6 +1,6 @@
 'use strict';
 
-const { Node, Tree, BST } = require('../');
+const { Node, Tree, BST, preOrderSum } = require('../');
 
 describe('tree', () => {
   let tree = new Tree();
@@ -32,6 +32,12 @@ describe('tree', () => {
     let result = tree.postOrder();
     expect(result).toEqual([13, 14, 11, 15, 16, 12, 10]);
   });
+
+  it("test: sum ", ()=>{
+    let result = preOrderSum(tree);
+
+    expect(result).toEqual(91);
+  })
 });
 
 //-----------------------Binary Search Tree-------------------//

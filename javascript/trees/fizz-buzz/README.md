@@ -9,7 +9,7 @@ write a function call Tree-Fizz-Buzz, it will take a tree as argument and return
 
 ## Whiteboard Process
 
-![codeChallenge-19](../assets/codeChallenge-19.png)
+![codeChallenge-19](../../assets/codeChallenge-19.png)
 
 ## Approach & Efficiency
 

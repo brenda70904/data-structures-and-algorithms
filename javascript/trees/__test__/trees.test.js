@@ -37,7 +37,7 @@ describe('tree', () => {
     let result = preOrderSum(tree);
 
     expect(result).toEqual(91);
-  })
+  });
 });
 
 //-----------------------Binary Search Tree-------------------//
@@ -47,7 +47,7 @@ describe('Binary Search Tree', () => {
   bst.add(5);
   bst.add(88);
   bst.add(34);
-  bst.add(3)
+  bst.add(3);
   bst.add(14);
   bst.add(43);
   bst.add(22);
@@ -86,4 +86,4 @@ describe('tree Max',()=>{
   it('return max value from tree',()=>{
     expect(tree.treeMax()).toEqual(15);
   });
-})
+});

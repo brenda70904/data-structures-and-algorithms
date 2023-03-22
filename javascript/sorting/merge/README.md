@@ -43,7 +43,7 @@ Merge sort is a sorting algorithm that works by dividing an array into smaller s
 step through
 ![image](../../assets/codeChallenge-27.jpeg)
 
-# Efficency
+### Efficency
 
 time: O(N Logn)
 space: O(N)

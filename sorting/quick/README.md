@@ -1,1 +1,0 @@
-# Blog Notes: Quick Sort

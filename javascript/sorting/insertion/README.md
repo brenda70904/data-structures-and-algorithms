@@ -32,8 +32,7 @@ insertion sort is a sorting algorithm that select a value and compare to the val
 
 `npm test insertion.test.js`
 
-# Efficency
+### Efficency
 
 time: O(N^2)
 space: O(1)
-

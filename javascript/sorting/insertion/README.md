@@ -25,7 +25,15 @@ insertion sort is a sorting algorithm that select a value and compare to the val
       return sorted
 
 ## step thru
+
 ![stepThru](../../javascript/assets/codeChallenge-26.jpeg)
 
 ### testing
+
 `npm test insertion.test.js`
+
+# Efficency
+
+time: O(N^2)
+space: O(1)
+

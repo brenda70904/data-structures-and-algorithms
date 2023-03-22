@@ -26,7 +26,7 @@ insertion sort is a sorting algorithm that select a value and compare to the val
 
 ## step thru
 
-![stepThru](../../javascript/assets/codeChallenge-26.jpeg)
+![stepThru](../../assets/codeChallenge-26.jpeg)
 
 ### testing
 
@@ -34,5 +34,5 @@ insertion sort is a sorting algorithm that select a value and compare to the val
 
 ### Efficency
 
-time: O(N^2)
-space: O(1)
+- time: O(N^2)
+- space: O(1)

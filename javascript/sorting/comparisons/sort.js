@@ -29,5 +29,5 @@ function compareTitle(a, b) {
   return a.title > b.title ? 1 : -1 ;
 }
 
-console.log(sortTitle(Movies));
+// console.log(sortTitle(Movies));
 module.exports = { sortYear, compareYear, sortTitle, compareTitle };

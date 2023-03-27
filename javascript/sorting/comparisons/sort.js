@@ -1,12 +1,10 @@
 'use strict';
-const { Movies } = require('./movies');
 
 const { mainModule } = require('process');
 
 // need to write the 'callback' compareYear
 function sortYear(arr) {
-  arr.sort((a, b) => compareYear(a, b));
-  return arr;
+  return arr.sort(compareYear);
 }
 
 
@@ -15,7 +13,7 @@ function compareYear(a, b) {
 }
 
 function sortTitle(arr) {
-  return arr.sort((a, b) => compareTitle(a, b));
+  return arr.sort(compareTitle);
 }
 
 
@@ -31,5 +29,5 @@ function compareTitle(a, b) {
   return a.title > b.title ? 1 : -1 ;
 }
 
-console.log(sortTitle(Movies));
+// console.log(sortTitle(Movies));
 module.exports = { sortYear, compareYear, sortTitle, compareTitle };

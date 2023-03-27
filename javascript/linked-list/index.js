@@ -111,9 +111,9 @@ class LinkedList {
 
 
 class Node {
-    constructor(value, next = null) {
-        this.value = value,
-            this.next = next
+    constructor(val, next = null) {
+        this.val = val,
+        this.next = next
     };
 };
 

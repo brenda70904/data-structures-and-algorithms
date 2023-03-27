@@ -12,7 +12,6 @@ class HashTable {
     // use the reducer pattern to get that ascii code
     let asciiSum = characters.reduce((sum, character) => {
       return sum + character.charCodeAt(0);
-
     }, 0);
     // multiply asscii sum by the large prime number
     let initialHash = asciiSum * 599;
@@ -22,21 +21,13 @@ class HashTable {
   set(key, value) {
     //hash the key
     let position = this.hash(key);
-    //square bracket notation allows me to create an object property dynamically using some variable
-    let data = { [key]: value };
-
-    //how to store in a linked-list -
-    // use the existed linked-list:
-    // does the bucket exist? if it dose, add to the existing bucket
-    // if it's does not, create the bucket and add it to the corect postition in the array
-    // import exist linked-list method
 
     if (this.buckets[position]) {
       let bucket = this.buckets[position];
-      bucket.insert(data);
+      bucket.insert({[key]:value});
     } else {
       let bucket = new LinkedList();
-      bucket.insert(data);
+      bucket.insert({[key] : value});
       this.buckets[position] = bucket;
     }
     // Returns: nothing
@@ -44,52 +35,52 @@ class HashTable {
 
   }
 
-  get(key){
+  get(key) {
     // Returns: Value associated with that key in the table
     let position = this.hash(key);
     // note: this doesn't account for collistions
-    if (this.buckets[position]){
+    if (this.buckets[position]) {
       let bucket = this.buckets[position];
-      //if no linked-list , it's likely jus t bucket.value
-      let value = bucket.head.value[key];
+      // if no linked-list , it's likely jus t bucket.value
+      // console.log('##vals',Object.values(bucket.head.val)[0] );
+      // console.log('##keys',Object.keys(bucket.head.val)[0] );
+
+      let value = Object.values(bucket.head.val)[0];
       return value;
     }
   }
 
-  has(key){
+  has(key) {
     let position = this.hash(key);
     // Returns: Boolean, indicating if the key exists in the table already.
     let result = this.buckets[position] ? true : false;
     return result;
   }
 
-  key(){
-     
-  }
+  key() {
+    let collection = [];
+    for (let i = 0; i < this.buckets.length; i ++ ) {
+      if (this.buckets[i]) {
+        //console.log(i, this.buckets[i]);
+        let current = this.buckets[i].head;
+        while (current){
+          // console.log('val', current.val);
+          collection.push(Object.keys(current.val)[0])
+          //collection.push(current.val[0]);
+          current = current.next;
+        }
+          
+        }
+      }
+      return collection;
+    }
+    
+  
 }
+
+module.exports = HashTable;
 
 const table = new HashTable(1024);
 
-const hashOne = table.hash('Brenda');
-const hashtwo = table.hash('Judy');
-const hashThree = table.hash('Ryan');
 
-// console.log(`hash one: ${hashOne}`, `hash two:${hashtwo}`, `Hash three:${hashThree}`);
-
-// console.log('table: ', table);
-
-table.set('Brenda', 'she/her');
-table.set('Judy', 'she/her');
-table.set('Ryan', 'he/him');
-console.log('tab: ', table);
-
-console.log(table.get('Judy'));
-console.log('has:', table.has('Ash'));
-console.log('has:', table.has('Brenda'));
-
-
-
-
-// keys
-// Returns: Collection of keys
 

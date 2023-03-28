@@ -185,4 +185,4 @@ class BST {
 // }
 
 
-module.exports = { Node, Tree, BST, preOrderSum };
+module.exports = { Node, Tree, BST };

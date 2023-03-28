@@ -24,10 +24,10 @@ class HashTable {
 
     if (this.buckets[position]) {
       let bucket = this.buckets[position];
-      bucket.insert({[key]:value});
+      bucket.insert({ [key]: value });
     } else {
       let bucket = new LinkedList();
-      bucket.insert({[key] : value});
+      bucket.insert({ [key]: value });
       this.buckets[position] = bucket;
     }
     // Returns: nothing
@@ -59,26 +59,40 @@ class HashTable {
 
   key() {
     let collection = [];
-    for (let i = 0; i < this.buckets.length; i ++ ) {
+    for (let i = 0; i < this.buckets.length; i++) {
       if (this.buckets[i]) {
         //console.log(i, this.buckets[i]);
         let current = this.buckets[i].head;
-        while (current){
+        while (current) {
           // console.log('val', current.val);
           collection.push(Object.keys(current.val)[0])
           //collection.push(current.val[0]);
           current = current.next;
         }
-          
-        }
+
       }
-      return collection;
     }
-    
-  
+    return collection;
+  }
+
+
 }
 
-module.exports = HashTable;
+const repeatWord = (str) => {
+  let hashTable = new HashTable();
+
+  let arr = str.split(' ');
+  for (let i = 0; i < arr.length; i++) {
+    if (hashTable.has(arr[i])) {
+      return arr[i];
+    } else {
+      hashTable.set(arr[i], arr[i]);
+    }
+  }
+  return null;
+}
+
+module.exports = {HashTable, repeatWord};
 
 const table = new HashTable(1024);
 

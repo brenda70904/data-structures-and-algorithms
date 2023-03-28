@@ -1,4 +1,4 @@
-const HashTable = require('../index');
+const {HashTable, repeatWord} = require('../index');
 
 describe('HashTable', () => {
   const table = new HashTable(100);
@@ -20,13 +20,20 @@ describe('HashTable', () => {
 
   });
 
-  it('Successfully handle a collision within the hashtable', ()=>{
+  it('Successfully handle a collision within the hashtable', () => {
 
-    expect(table.set('Kevin','0000')).toEqual(table.set('Kevin','9999'));
+    expect(table.set('Kevin', '0000')).toEqual(table.set('Kevin', '9999'));
   });
 
-  it('Successfully returns null for a key that does not exist in the hashtable', ()=>{
+  it('Successfully returns null for a key that does not exist in the hashtable', () => {
     expect(table.has('kevin')).toBeFalsy();
     expect(table.has('Brenda')).toBeTruthy();
   });
 });
+
+describe('RepeatWords Function', () => {
+  it('Tests that the function correctly returns the first repeated word encountered in the input', () => {
+    const str = 'hello world hello world';
+    expect(repeatedWord(str)).toEqual('hello');
+  });
+})

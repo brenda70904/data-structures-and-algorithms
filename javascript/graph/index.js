@@ -87,7 +87,7 @@ class Graph {
       for(let edge of neighbors){
         if(!visited.has(edge.vertex)){
           visited.add(edge.vertex);
-          stack.push(edge.vertex); // add to the front of the queue
+          stack.push(edge.vertex); // add to the end of the stack
         }
       }
     }

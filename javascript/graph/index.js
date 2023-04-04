@@ -95,43 +95,18 @@ class Graph {
   }
 
   
-  size() {
-    let count = 0;
-    let iterator = this.getNodes();
-    for (let item of iterator) {
-      count++;
-    }
-    return count;
-  }
+  // size() {
+  //   let count = 0;
+  //   let iterator = this.getNodes();
+  //   for (let item of iterator) {
+  //     count++;
+  //   }
+  //   return count;
+  // }
 
   size(){
     return this.adjacencyList.size;
   }
 }
-
-let graph = new Graph();
-const A = graph.addVertex('A');
-const B = graph.addVertex('B');
-const C = graph.addVertex('C');
-const D = graph.addVertex('D');
-const E = graph.addVertex('E');
-const F = graph.addVertex('F');
-const G = graph.addVertex('G');
-const H = graph.addVertex('H');
-
-graph.addDirectedEdge(A, B);
-graph.addDirectedEdge(A, D);
-graph.addDirectedEdge(A, C);
-graph.addDirectedEdge(B, G);
-graph.addDirectedEdge(D, F);
-graph.addDirectedEdge(D, H);
-graph.addDirectedEdge(F, H);
-graph.addDirectedEdge(C, H);
-graph.addDirectedEdge(F, E);
-
-// graph.breadthFirst(A, console.log);
-// console.log(graph.size());
-let resut =graph.getNodes();
-console.log(resut);
 
 module.exports= {Graph,Vertex,Edge};

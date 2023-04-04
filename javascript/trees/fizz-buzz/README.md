@@ -16,11 +16,11 @@ write a function call Tree-Fizz-Buzz, it will take a tree as argument and return
 Big O
 
 time:O(n)
+n is base on how many node we have to traverse.
 
-
-space: O(n)
-
+space: O(1)
+this algorithm does not need extra storage, so is O of 1.
 
 ## Solution
 
-to run the test, use `npm test trees.test.js`.
+to run the test, use `npm test fuzz-buzz.test.js`.

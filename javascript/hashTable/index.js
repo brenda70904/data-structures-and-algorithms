@@ -22,6 +22,7 @@ class HashTable {
     //hash the key
     let position = this.hash(key);
 
+    // handle collisions, if there is a collision, add to the linked list
     if (this.buckets[position]) {
       let bucket = this.buckets[position];
       bucket.insert({ [key]: value });
